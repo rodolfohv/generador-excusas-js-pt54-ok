@@ -1,20 +1,14 @@
 {
-  "name": "proje-example",
+  "name": "generador-excusas-js-pt54-ok",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^5.2.0"
-  },
-  "dependencies": {
-    "bootstrap": "^5.1.1"
-  },
-  "engines": {
-    "node": ">=20.0.0"
+    "vite": "^7.0.0"
   }
 }

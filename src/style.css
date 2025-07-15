@@ -93,4 +93,27 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+  #excuse {
+  font-size: 1.3rem;
+  margin: 1.5rem 0;
+  min-height: 60px;
+  color: inherit;
+  transition: all 0.3s ease-in-out;
+}
+
+button {
+  margin: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+button#btnPro::before {
+  content: "💼";
+}
+
+button#btnFun::before {
+  content: "🤣";
+}
+
 }

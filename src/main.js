@@ -1,24 +1,56 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import './style.css';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
+// Arrays para excusas profesionales y cómicas
+let whoPro = ['Mi jefe', 'El equipo de IT', 'Recursos Humanos', 'El cliente'];
+let actionPro = ['reinició', 'canceló', 'rechazó', 'pospusó'];
+let whatPro = ['la reunión', 'el sistema', 'el proyecto', 'el informe'];
+let whenPro = ['esta mañana', 'ayer en la tarde', 'durante el almuerzo', 'justo antes de la entrega'];
+
+let whoFun = ['Mi perro', 'Mi abuela', 'El vecino', 'Un ovni'];
+let actionFun = ['se comió', 'rompió', 'mojó', 'quemó'];
+let whatFun = ['mi tarea', 'la llanta', 'el WiFi', 'el despertador'];
+let whenFun = ['antes de clase', 'mientras dormía', 'durante la cena', 'cuando estaba saliendo'];
+
+// Función generadora
+function generateExcuse(type) {
+  let who, action, what, when;
+
+  if (type === "pro") {
+    who = whoPro;
+    action = actionPro;
+    what = whatPro;
+    when = whenPro;
+  } else {
+    who = whoFun;
+    action = actionFun;
+    what = whatFun;
+    when = whenFun;
+  }
+
+  let randomWho = who[Math.floor(Math.random() * who.length)];
+  let randomAction = action[Math.floor(Math.random() * action.length)];
+  let randomWhat = what[Math.floor(Math.random() * what.length)];
+  let randomWhen = when[Math.floor(Math.random() * when.length)];
+
+  return `${randomWho} ${randomAction} ${randomWhat} ${randomWhen}.`;
+}
+
+// Inserta el HTML base y enlaza los botones al cargar la página
+window.onload = () => {
+  document.querySelector('#app').innerHTML = `
+    <div class="container">
+      <h1>Generador de Excusas</h1>
+      <p id="excuse">Haz clic en un botón para generar una excusa</p>
+      <button id="btnPro">Excusa profesional</button>
+      <button id="btnFun">Excusa cómica</button>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+  `;
 
-setupCounter(document.querySelector('#counter'))
+  document.querySelector("#btnPro").addEventListener("click", () => {
+    document.querySelector("#excuse").innerHTML = generateExcuse("pro");
+  });
+
+  document.querySelector("#btnFun").addEventListener("click", () => {
+    document.querySelector("#excuse").innerHTML = generateExcuse("fun");
+  });
+};
